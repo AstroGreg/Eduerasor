@@ -17,14 +17,12 @@ class Edueraser:
                 self.driver.get(question)
                 #  map(lambda inputtag: inputtag.clear(), self.driver.find_elements_by_tag_name("input"))
                 for inputtag in self.driver.find_elements_by_tag_name("input"):
-                    inputtag.clear()
+                    inputtag.clear() # leeg de inputvelden
                 self.driver.find_element_by_id("validateButton").click()
-         # delete alle inputvelden van de vraag
          self.quit()
     def login(self):
         self.driver.get("https://edublend.ucll.be")
         print(colored("\n-------------------------------------------------\nLogin on Tolede/edublend using the chrome Driver!\nThe automation will only function on the chrome tab that just popped up.\nin case you entered wrong credentials or got a pop up. \nYou should keep navigating (reload/moveback) on the intial screen automated by the chrome driver.\n-------------------------------------------------" , "green"))
-
         WebDriverWait(self.driver, 10000).until(ec.title_is("EduBlend homepage")) # 10 000 seconden om in te loggen. Dat moet lukken
     def quit(self):
         self.driver.close()
